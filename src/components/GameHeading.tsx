@@ -11,7 +11,7 @@ const GameHeading = ({ gameQuery }: Props) => {
   //platform
   //patform genre
   const header = `${gameQuery.platform?.name || ''} ${gameQuery.genre?.name || ''} Games`;
-  return <Heading as="h1" marginY={5}>{header}</Heading>;
+  return <Heading as="h1" marginY={5} fontSize='5xl'>{header}</Heading>;
 };
 
 export default GameHeading;
