@@ -1,30 +1,35 @@
-import {Text, SimpleGrid } from "@chakra-ui/react"
-import CriticScore from "./CriticScore"
-import DefinitionItem from "./DefinitionItem"
-import { Game } from "../entities/Game"
+import { Text, SimpleGrid } from "@chakra-ui/react";
+import CriticScore from "./CriticScore";
+import DefinitionItem from "./DefinitionItem";
+import { Game } from "../entities/Game";
 
-export interface Props{
-    game: Game;
+export interface Props {
+  game: Game;
 }
 
-const GameAttributes = ({game}:Props) => {
-
+const GameAttributes = ({ game }: Props) => {
   return (
-    <SimpleGrid columns={2} >
-      <DefinitionItem term='Platform'>
-        {game.parent_platforms.map(({platform}) => <Text key={platform.id}>{platform.name}</Text> )}
+    <SimpleGrid columns={2}>
+      <DefinitionItem term="Platform">
+        {game.parent_platforms.map(({ platform }) => (
+          <Text key={platform.id}>{platform.name}</Text>
+        ))}
       </DefinitionItem>
-      <DefinitionItem term='Metascore'>
+      <DefinitionItem term="Metascore">
         <CriticScore score={game.metacritic} />
       </DefinitionItem>
-      <DefinitionItem term='Genres'>
-        {game.genres.map( genre => <Text key={genre.id}>{genre.name}</Text>)}
+      <DefinitionItem term="Genres">
+        {game.genres.map((genre) => (
+          <Text key={genre.id}>{genre.name}</Text>
+        ))}
       </DefinitionItem>
-      <DefinitionItem term='Publishers'>
-        { game.publishers.map( publisher => <Text> {publisher.name} </Text> ) }
+      <DefinitionItem term="Publishers">
+        {game.publishers.map((publisher) => (
+          <Text> {publisher.name} </Text>
+        ))}
       </DefinitionItem>
-      </SimpleGrid>
-  )
-}
+    </SimpleGrid>
+  );
+};
 
-export default GameAttributes
+export default GameAttributes;
